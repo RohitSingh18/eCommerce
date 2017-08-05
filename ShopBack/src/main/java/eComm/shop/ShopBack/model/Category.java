@@ -1,6 +1,8 @@
 package eComm.shop.ShopBack.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
@@ -10,14 +12,15 @@ import org.springframework.stereotype.Component;
 public class Category {
 	
 @Id	
-private String categoryID;
+@GeneratedValue(strategy = GenerationType.SEQUENCE)
+private int categoryID;
 private String categoryName;
 private String categoryDesc;
 
-public String getCategoryID() {
+public int getCategoryID(){
 	return categoryID;
 }
-public void setCategoryID(String categoryID) {
+public void setCategoryID(int categoryID) {
 	this.categoryID = categoryID;
 }
 public String getCategoryName() {

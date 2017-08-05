@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
     <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
+    <%@page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,13 +10,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<sp:form action="addCategory" method="POST" modelAttribute="category">
-
+<sp:form action="${pageContext.request.contextPath}/addCategory" method="POST" modelAttribute="category">
+<c:if test="${not empty category.categoryName}">
+Category ID <sp:input path="categoryID" readOnly="true" disabled="true"/>
+<sp:hidden path="categoryID"/>
+</c:if>
 Cat Name<sp:input path="categoryName"/>
 Cat Desc<sp:input path="categoryDesc"/>
 
-<sp:button value="submit">ADD</sp:button>
 
+<sp:button value="submit">ADD</sp:button>
 </sp:form>
 <br>
 <br>
@@ -28,11 +32,11 @@ Cat Desc<sp:input path="categoryDesc"/>
 <tr>
 <c:forEach items="${categoryList }" var="c">
 <tr><td>${c.categoryID }</td>
-<td>${categoryName }</td>
-<td>${categoryDesc }</td>
-
+<td>${c.categoryName }</td>
+<td>${c.categoryDesc }</td>
+<td><a href="<c:url value='updateCategory/${c.categoryID}'/>">Edit/</a>
+<td><a href="<c:url value='deleteCategory/${c.categoryID}'/>">Delete/</a></td></tr>
 </c:forEach>
-</tr>
 
 </table>
 </c:if>
