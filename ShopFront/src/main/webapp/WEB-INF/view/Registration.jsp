@@ -1,65 +1,176 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Registration Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        @import "font-awesome.min.css";
+@import "font-awesome-ie7.min.css";
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!-- REGISTRATION FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">register</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="register-form" class="text-left">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
+<div class="container">
+    <h1 class="well">Registration Form</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+				<form>
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>First Name</label>
+								<input type="text" placeholder="Enter First Name Here.." class="form-control">
+							</div>
+							<div class="col-sm-6 form-group">
+								<label>Last Name</label>
+								<input type="text" placeholder="Enter Last Name Here.." class="form-control">
+							</div>
+							<div class="form-group">
+						<label>Phone Number</label>
+						<input type="text" placeholder="Enter Phone Number Here.." class="form-control">
+					</div>		
 					<div class="form-group">
-						<label for="reg_username" class="sr-only">Email address</label>
-						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+						<label>Email Address</label>
+						<input type="text" placeholder="Enter Email Address Here.." class="form-control">
 					</div>
-					<div class="form-group">
-						<label for="reg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
+						</div>
+						<h2>Shipping Address</h2>					
+						<div class="form-group">
+						<label>Address Line 1</label>
+							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						</div>
+						<div class="form-group">
+						<label>Address Line 2</label>
+							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						</div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>City</label>
+								<input type="text" placeholder="Enter City Name Here.." class="form-control">
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>State</label>
+								<input type="text" placeholder="Enter State Name Here.." class="form-control">
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>Zip</label>
+								<input type="text" placeholder="Enter Zip Code Here.." class="form-control">
+							</div>		
+						</div>						
+							<h2>Billing Address</h2>	
+						</div>					
+						<div class="form-group">
+						<label>Address Line 1</label>
+							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						</div>
+						<div class="form-group">
+						<label>Address Line 2</label>
+							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						</div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>City</label>
+								<input type="text" placeholder="Enter City Name Here.." class="form-control">
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>State</label>
+								<input type="text" placeholder="Enter State Name Here.." class="form-control">
+							</div>	
+							<div class="col-sm-4 form-group">
+								<label>Zip</label>
+								<input type="text" placeholder="Enter Zip Code Here.." class="form-control">
+							</div>		
+						</div>						
+					<button type="button" class="btn btn-lg btn-info">Submit</button>					
 					</div>
-					<div class="form-group">
-						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-					</div>
-					
-					<div class="form-group">
-						<label for="reg_email" class="sr-only">Email</label>
-						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-					</div>
-					<div class="form-group">
-						<label for="reg_fullname" class="sr-only">Full Name</label>
-						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-					</div>
-					
-					<div class="form-group login-group-checkbox">
-						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-						<label for="male">male</label>
-						
-						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-						<label for="female">female</label>
-					</div>
-					
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" class="" id="reg_agree" name="reg_agree">
-						<label for="reg_agree">i agree with <a href="#">terms</a></label>
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>already have an account? <a href="#">login here</a></p>
-			</div>
-		</form>
+				</form> 
 	</div>
-	<!-- end:Main Form -->
-</div>
+	</div>
+<script type="text/javascript">
 
+</script>
 </body>
 </html>
