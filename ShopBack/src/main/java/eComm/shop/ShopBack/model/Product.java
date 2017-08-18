@@ -21,7 +21,17 @@ public class Product {
 	private int productID;
 	private String productName;
 	private String productDesc;
+	private long productCost;
 	
+
+	private String categoryID;
+	public String getCategoryID() {
+		return categoryID;
+	}
+	public void setCategoryID(String categoryID) {
+		this.categoryID = categoryID;
+	}
+
 	@Transient
 	MultipartFile image;
 	public MultipartFile getImage() {
@@ -60,6 +70,12 @@ public class Product {
 	}
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
+	}
+	public long getProductCost() {
+		return productCost;
+	}
+	public void setProductCost(long productCost) {
+		this.productCost = productCost;
 	}
 
 }

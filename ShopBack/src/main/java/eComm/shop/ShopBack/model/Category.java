@@ -2,6 +2,7 @@ package eComm.shop.ShopBack.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,14 +35,13 @@ public void setImage(MultipartFile image) {
 	this.image = image;
 }
 @OneToMany(mappedBy="category",fetch=FetchType.EAGER)
-private List<Product> product=new ArrayList<Product>();
+Set<Product>products;
 
-
-public List<Product> getProduct() {
-	return product;
+public Set<Product> getProducts() {
+	return products;
 }
-public void setProduct(List<Product> product) {
-	this.product = product;
+public void setProducts(Set<Product> products) {
+	this.products = products;
 }
 public int getCategoryID(){
 	return categoryID;

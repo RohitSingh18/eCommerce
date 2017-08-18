@@ -34,12 +34,11 @@ Cat Desc<sp:input path="categoryDesc"/>
 <tr><td>${c.categoryID }</td>
 <td>${c.categoryName }</td>
 <td>${c.categoryDesc }</td>
-<td><a href="<c:url value='updateCategory/${c.categoryID}'/>">Edit/</a>
-<td><a href="<c:url value='deleteCategory/${c.categoryID}'/>">Delete/</a></td></tr>
+<td><a href="<c:url value='updateCategory/${c.categoryID}'/>">Edit</a>
+<td><a href="<c:url value='deleteCategory/${c.categoryID}'/>">Delete</a></td></tr>
 </c:forEach>
 
 </table>
 </c:if>
-
 </body>
 </html>

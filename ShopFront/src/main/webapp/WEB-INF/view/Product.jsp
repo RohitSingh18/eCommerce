@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Products</title>
 </head>
 <body>
 <sp:form action="addProduct" method="post" modelAttribute="product" enctype="Multipart/form-data">
@@ -17,8 +17,9 @@ Product ID <sp:input path="productID" readOnly="true" disabled="true"/>
 </c:if>
 Product Name<sp:input path="productName"/>
 Product Desc<sp:input path="productDesc"/>
+Product Cost<sp:input path="productCost"/>
 <sp:input type="file" path="image"/>
-<sp:select path="brandID">
+<sp:select path="categoryID">
 <c:forEach items="${categoryList }" var="c">
 <sp:option value="${c.categoryID }">${c.categoryName}</sp:option>
 </c:forEach>
@@ -36,14 +37,15 @@ Product Desc<sp:input path="productDesc"/>
 <c:if test="${not empty productList }">
 <table width="50%"border="1">
 <tr>
-<th>ID</th><th>Product Name</th><th>Product Description</th><th>BrandID</th>
+<th>ID</th><th>Product Name</th><th>Product Description</th><th>Price</th><th>CategoryID</th><th>Image</th><th>Action</th>
 </tr>
 <tr>
 <c:forEach items="${productList }" var="c">
 <tr><td>${c.productID }</td>
 <td>${c.productName }</td>
 <td>${c.productDesc }</td>
-<td>${c.brandID }</td>
+<td>${c.productCost }</td>
+<td>${c.categoryID }</td>
 
 <td><img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" style="width:150px;height:120px;"></td>
 <td><a href="<c:url value='updateProduct/${c.productID}'/>">Edit/</a>

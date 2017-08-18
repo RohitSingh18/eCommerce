@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import eComm.shop.ShopBack.dao.CategoryDao;
 import eComm.shop.ShopBack.dao.ProductDao;
+import eComm.shop.ShopBack.model.BillingAddress;
 import eComm.shop.ShopBack.model.Category;
 import eComm.shop.ShopBack.model.Product;
+import eComm.shop.ShopBack.model.ShippingAddress;
+import eComm.shop.ShopBack.model.User;
 
 @Controller
 public class HomeController {
@@ -16,8 +19,9 @@ public class HomeController {
 	@Autowired
 	CategoryDao categoryDao;
    @RequestMapping("/")
-	public String home()
+	public String home(Model model)
 	{
+	   model.addAttribute("productList",productDao.getAllProduct());
 		return "index";
 	}
    @RequestMapping("/Category")
@@ -45,8 +49,20 @@ public class HomeController {
      }
    
    @RequestMapping("/Registration")
-   public String regis()
+   public String regis(Model model)
 {
+	   ShippingAddress ship = new ShippingAddress();
+	   BillingAddress bill = new BillingAddress();
+	   User user= new User();
+	   user.setShippingaddress(ship);
+	   user.setBillingaddress(bill);
+	   model.addAttribute("user",new User());
 	return "Registration";
+   }
+   
+   @RequestMapping("/Login")
+   public String login()
+{
+	return "Login";
    }
 }

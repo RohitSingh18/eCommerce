@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
+    <%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,76 +102,82 @@ body {
     <h1 class="well">Registration Form</h1>
 	<div class="col-lg-12 well">
 	<div class="row">
-				<form>
+				<sp:form action="${pageContext.request.contextPath}/save" method="POST" modelAttribute="user">
+			
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
-								<label>First Name</label>
-								<input type="text" placeholder="Enter First Name Here.." class="form-control">
+							<sp:label path="firstName" >First Name</sp:label>
+								<sp:input type="text" path="firstName" placeholder="Enter First Name Here.." class="form-control"/>
 							</div>
 							<div class="col-sm-6 form-group">
-								<label>Last Name</label>
-								<input type="text" placeholder="Enter Last Name Here.." class="form-control">
+								<sp:label path="lastName">Last Name</sp:label>
+								<sp:input type="text" path="lastName" placeholder="Enter Last Name Here.." class="form-control"/>
 							</div>
 							<div class="form-group">
-						<label>Phone Number</label>
-						<input type="text" placeholder="Enter Phone Number Here.." class="form-control">
+						<sp:label path="phoneNumber">Phone Number</sp:label>
+						<sp:input type="text" path="phoneNumber" placeholder="Enter Phone Number Here.." class="form-control"/>
 					</div>		
 					<div class="form-group">
-						<label>Email Address</label>
-						<input type="text" placeholder="Enter Email Address Here.." class="form-control">
+						<sp:label path="emailId">Email Id</sp:label>
+						<sp:input type="text" path="emailId" placeholder="Enter Email Id Here.." class="form-control"/>
+					</div>
+					<div class="form-group">
+						<sp:label path="password">Password</sp:label>
+						<sp:input type="text" path="password" placeholder="Enter Password Here.." class="form-control"/>
 					</div>
 						</div>
+						
+						
 						<h2>Shipping Address</h2>					
 						<div class="form-group">
-						<label>Address Line 1</label>
-							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						<sp:label path="shippingaddress.houseNo">House No.</sp:label>
+							<sp:input type="text" path="shippingaddress.houseNo" placeholder="Enter House No. Here.." class="form-control"></sp:input>
 						</div>
 						<div class="form-group">
-						<label>Address Line 2</label>
-							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						<sp:label path="shippingaddress.streetName">Street Name</sp:label>
+							<sp:input type="text" path="shippingaddress.streetName" placeholder="Enter Street Here.." class="form-control"></sp:input>
 						</div>	
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>City</label>
-								<input type="text" placeholder="Enter City Name Here.." class="form-control">
+									<sp:label path="shippingaddress.city">City</sp:label>
+									<sp:input type="text" path="shippingaddress.city" placeholder="Enter City Name Here.." class="form-control"/>
 							</div>	
 							<div class="col-sm-4 form-group">
-								<label>State</label>
-								<input type="text" placeholder="Enter State Name Here.." class="form-control">
+								<sp:label path="shippingaddress.state">State</sp:label>
+								<sp:input type="text" path="shippingaddress.state" placeholder="Enter State Name Here.." class="form-control"/>
 							</div>	
 							<div class="col-sm-4 form-group">
-								<label>Zip</label>
-								<input type="text" placeholder="Enter Zip Code Here.." class="form-control">
+								<sp:label path="shippingaddress.zip">Zip</sp:label>
+								<sp:input type="text" path="shippingaddress.zip" placeholder="Enter Zip Code Here.." class="form-control"/>
 							</div>		
-						</div>						
-							<h2>Billing Address</h2>	
-						</div>					
-						<div class="form-group">
-						<label>Address Line 1</label>
-							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						</div>
+						<h2>Billing Address</h2>
+							<div class="form-group">
+						<sp:label path="billingaddress.houseNo">House No.</sp:label>
+							<sp:input type="text" path="billingaddress.houseNo" placeholder="Enter House No. Here.." class="form-control"/>
 						</div>
 						<div class="form-group">
-						<label>Address Line 2</label>
-							<input type="text" placeholder="Enter Address Here.." class="form-control">
+						<sp:label path="billingaddress.streetName">Street Name</sp:label>
+							<sp:input type="text" path="billingaddress.streetName" placeholder="Enter Street Here.." class="form-control"/>
 						</div>	
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>City</label>
-								<input type="text" placeholder="Enter City Name Here.." class="form-control">
+								<sp:label path="billingaddress.city">City</sp:label>
+								<sp:input type="text" path="billingaddress.city" placeholder="Enter City Name Here.." class="form-control"/>
 							</div>	
 							<div class="col-sm-4 form-group">
-								<label>State</label>
-								<input type="text" placeholder="Enter State Name Here.." class="form-control">
+								<sp:label path="billingaddress.state">State</sp:label>
+								<sp:input type="text" path="billingaddress.state" placeholder="Enter State Name Here.." class="form-control"/>
 							</div>	
 							<div class="col-sm-4 form-group">
-								<label>Zip</label>
-								<input type="text" placeholder="Enter Zip Code Here.." class="form-control">
-							</div>		
+								<sp:label path="billingaddress.zip">Zip</sp:label>
+								<sp:input type="text" path="billingaddress.zip" placeholder="Enter Zip Code Here.." class="form-control"/>
+							</div>						
 						</div>						
-					<button type="button" class="btn btn-lg btn-info">Submit</button>					
+					<sp:button type="submit" class="btn btn-lg btn-info">Submit</sp:button>					
 					</div>
-				</form> 
+				</sp:form> 
 	</div>
 	</div>
 <script type="text/javascript">

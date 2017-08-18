@@ -1,4 +1,8 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
+    <%@page isELIgnored="false" %>
 <html lang="en">
 <head>
   <title>Watch Co.</title>
@@ -14,7 +18,7 @@
 
 <%@ include file = "Header.jsp" %>
 
-<div class="container" style="background-color:black;"> 
+<div class="container"> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -26,15 +30,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="resources/images/watch1.jpg" alt="bretling" style="width:100%;">
+        <img src="resources/images/watch1.jpg" alt="bretling" width="1000" height="1200";">
       </div>
 
       <div class="item">
-        <img src="resources/images/watch2.jpg" alt="Chicago" style="width:100%;">
+        <img src="resources/images/watch2.jpg" alt="Chicago" width="1000" height="1200";">
       </div>
     
       <div class="item">
-        <img src="resources/images/watch3.jpg" alt="New york" style="width:100%;">
+        <img src="resources/images/watch3.jpg" alt="New york" width="1000" height="1200";">
       </div>
     </div>
 
@@ -49,7 +53,18 @@
     </a>
   </div>
 </div>
+<br>
 
+<div class=container>
+<c:forEach items="${productList }" var="c">
+<div class="col-md-2 column productbox">
+    <img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" class="img-responsive">
+    <div class="producttitle">${c.productName }</div>
+    <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">Cart</a></div><div class="pricetext">£8.95</div></div>
+</div>
+</c:forEach>
+<p>&nbsp;</p><p>&nbsp;</p>
+</div>
 </body>
 </html>
 

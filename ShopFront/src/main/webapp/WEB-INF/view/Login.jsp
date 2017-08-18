@@ -1,50 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <div class="container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+            <br />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>Login</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user" style="width: auto"></i>
+                            </span>
+                            <input id="txtUsuario" runat="server" type="text" class="form-control" name="user" placeholder="Email Id" required="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-lock" style="width: auto"></i>
+                            </span>
+                            <input id="txtSenha" runat="server" type="password" class="form-control" name="password" placeholder="Password" required="" />
+                        </div>
+                    </div>
+                    <button id="btnLogin" runat="server" class="btn btn-default" style="width: 100%">
+                        Enter<i class="glyphicon glyphicon-log-in"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+<script type="text/javascript">
 
-<!-- Where all the magic happens -->
-<!-- LOGIN FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">login</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="login-form" class="text-left">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="lg_username" class="sr-only">Username</label>
-						<input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
-					</div>
-					<div class="form-group">
-						<label for="lg_password" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
-					</div>
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" id="lg_remember" name="lg_remember">
-						<label for="lg_remember">remember</label>
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
-			<div class="etc-login-form">
-				<p>forgot your password? <a href="#">click here</a></p>
-				<p>new user? <a href="#">create new account</a></p>
-			</div>
-		</form>
-	</div>
-	<!-- end:Main Form -->
-</div>
-
+</script>
 </body>
 </html>
