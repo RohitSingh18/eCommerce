@@ -10,5 +10,6 @@ public interface ProductDao {
 	boolean updateProduct(Product c);
 	List<Product>getAllProduct();
 	Product productByid(int proid);
+	List<Product>productByCategory(int categoryID);
 
 }

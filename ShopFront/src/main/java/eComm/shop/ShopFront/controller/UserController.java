@@ -26,5 +26,12 @@ public String addUser(@ModelAttribute("user")User u)
 	
 		return "redirect:/";
 }
+
+@RequestMapping(value="/logg")
+public String logg()
+
+{
+	return "/";
+}
 	
 }

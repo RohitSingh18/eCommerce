@@ -72,7 +72,7 @@ public class User implements Serializable {
 	}
 @OneToOne(mappedBy="user")
    private BillingAddress billingaddress;
-public BillingAddress getBillingaddress() {
+	public BillingAddress getBillingaddress() {
 	return billingaddress;
 }
 public void setBillingaddress(BillingAddress billingaddress) {

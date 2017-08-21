@@ -22,9 +22,10 @@ public class HomeController {
 	public String home(Model model)
 	{
 	   model.addAttribute("productList",productDao.getAllProduct());
+	   model.addAttribute("categoryList",categoryDao.getAllCategory());
 		return "index";
 	}
-   @RequestMapping("/Category")
+   @RequestMapping("/admin/Category")
 	public String Category(Model model)
 	
 	{
@@ -36,7 +37,7 @@ public class HomeController {
 
 	
    
-   @RequestMapping("/Product")
+   @RequestMapping("/admin/Product")
   	public String Product(Model model)
 
      {
@@ -61,8 +62,10 @@ public class HomeController {
    }
    
    @RequestMapping("/Login")
-   public String login()
-{
+   public String login(Model model)
+   {
+	   model.addAttribute("categoryList",categoryDao.getAllCategory());
+	   model.addAttribute("productList",productDao.getAllProduct());
 	return "Login";
    }
 }

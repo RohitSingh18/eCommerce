@@ -76,6 +76,14 @@ public class ProductController {
 			    model.addAttribute("productList",productDao.getAllProduct());
 				return "redirect:/Product";
 		}
+		
+		@RequestMapping(value="/productByCategory/{categoryID}")
+		public String prodbycatid(@PathVariable("categoryName")int categoryID, Model model)
+		{
+			model.addAttribute("categoryList",categoryDao.getAllCategory());
+			model.addAttribute("productList",productDao.productByCategory(categoryID));
+			return"ProductTable";
+		}
 	}
 
 	

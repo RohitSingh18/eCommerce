@@ -11,5 +11,6 @@ public interface CategoryDao {
 	List<Category>getAllCategory();
 	Category categoryByid(int catid);
 	
+	
 
 }

@@ -53,6 +53,14 @@ public class ProductDaoImpl implements ProductDao {
 			return prolist;
 	
 	}
+	
+  public List<Product>productByCategory(int categoryID)
+  {
+	  Session s=sessionFactory.getCurrentSession();
+	  Query<Product>ql=s.createQuery("from product where categoryID='" +categoryID+"'");
+	  List<Product> plist=ql.getResultList();
+	  return plist;
+  }
 
 	
 }
