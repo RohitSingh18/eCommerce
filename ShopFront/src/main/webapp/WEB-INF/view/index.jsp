@@ -17,15 +17,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="resources/images/watch1.jpg" alt="bretling" width="1000" height="1200";">
+        <img src="resources/images/watch3.jpg" alt="bretling";">
       </div>
 
       <div class="item">
-        <img src="resources/images/watch2.jpg" alt="Chicago" width="1000" height="1200";">
+        <img src="resources/images/watch2.jpg" alt="Chicago" ;">
       </div>
     
       <div class="item">
-        <img src="resources/images/watch3.jpg" alt="New york" width="1000" height="1200";">
+        <img src="resources/images/watch1.jpg" alt="New york";">
       </div>
     </div>
 
@@ -50,6 +50,7 @@
     <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">Cart</a></div><div class="pricetext">${c.productCost }</div></div>
 </div>
 </c:forEach>
+
 <p>&nbsp;</p><p>&nbsp;</p>
 </div>
 <%@ include file = "Footer.jsp" %>

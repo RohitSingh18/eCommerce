@@ -1,4 +1,4 @@
-package eComm.shop.ShopBack.config;
+ package eComm.shop.ShopBack.config;
 
 import java.util.Properties;
 

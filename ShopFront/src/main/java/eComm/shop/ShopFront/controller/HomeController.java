@@ -2,6 +2,7 @@ package eComm.shop.ShopFront.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import eComm.shop.ShopBack.dao.CategoryDao;
@@ -67,5 +68,16 @@ public class HomeController {
 	   model.addAttribute("categoryList",categoryDao.getAllCategory());
 	   model.addAttribute("productList",productDao.getAllProduct());
 	return "Login";
+   }
+   	
+   
+   @RequestMapping("/ProductTable/{catID}")
+  
+   public String producttable (@PathVariable("catID")Integer catID,Model model)
+   {
+	   	model.addAttribute("productList",productDao.getAllProduct());
+
+	   	model.addAttribute("productList",productDao.productByCategory(catID));
+	   	return"ProductTable";
    }
 }

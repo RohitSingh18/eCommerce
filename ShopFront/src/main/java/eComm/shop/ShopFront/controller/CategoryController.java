@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import eComm.shop.ShopBack.dao.CategoryDao;
 import eComm.shop.ShopBack.model.Category;
 @Controller
-public class CategoryController {
+public class categoryController {
 
 	
 	@Autowired
@@ -30,29 +30,15 @@ public class CategoryController {
 		 if(c.getCategoryID()==0)
 		    {
 			categoryDao.addCategory(c);
-			MultipartFile mp=c.getImage();
-			ServletContext context=s.getServletContext();
-			String filelocation=context.getRealPath("/resources/images");
-			System.out.println(filelocation);
-			String filename=filelocation+"\\"+c.getCategoryID()+".jpg";
-			System.out.println(filename);
-			try{
-				byte b[]=mp.getBytes();
-			FileOutputStream fos=new FileOutputStream(filename);
-			fos.write(b);
-			fos.close();
-			}
-			catch(Exception e){}
-		
-
 						}
+
 		    else
 		    {
 		    	categoryDao.updateCategory(c);
 
 				
 		    }
-		 return "redirect:/Category";
+		 return "redirect:/admin/Category";
 	}
 		@RequestMapping(value="/updateCategory/{categoryId}")
 			public String updatecategory(@PathVariable("categoryId")Integer catid, Model model)
@@ -67,7 +53,7 @@ public class CategoryController {
 				model.addAttribute("category",categoryDao.categoryByid(catid));
 				categoryDao.deleteCategory(catid);
 			    model.addAttribute("categoryList",categoryDao.getAllCategory());
-				return "redirect:/Category";
+				return "redirect:/admin/Category";
 		}
 	}
 

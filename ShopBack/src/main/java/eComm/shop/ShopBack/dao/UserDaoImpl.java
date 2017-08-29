@@ -21,6 +21,7 @@ public class UserDaoImpl implements UserDao {
 	SessionFactory sessionFactory;
 	@Autowired
 	UserDao userDao;
+	
 	public boolean save(User u) {
 		Session ss=sessionFactory.getCurrentSession();
 		u.getBillingaddress().setUser(u);
@@ -36,6 +37,7 @@ public class UserDaoImpl implements UserDao {
 		
 		return true;
 	}
+
 
 	
 

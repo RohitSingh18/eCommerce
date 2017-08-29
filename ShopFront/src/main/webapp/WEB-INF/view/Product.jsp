@@ -10,7 +10,7 @@
 <title>Products</title>
 </head>
 <body>
-<sp:form action="addProduct" method="post" modelAttribute="product" enctype="Multipart/form-data">
+<sp:form action="${pageContext.request.contextPath}/addProduct" method="post" modelAttribute="product" enctype="Multipart/form-data">
 <c:if test="${not empty product.productName}">
 Product ID <sp:input path="productID" readOnly="true" disabled="true"/>
 <sp:hidden path="productID"/>
@@ -48,8 +48,8 @@ Product Cost<sp:input path="productCost"/>
 <td>${c.categoryID }</td>
 
 <td><img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" style="width:150px;height:120px;"></td>
-<td><a href="<c:url value='updateProduct/${c.productID}'/>">Edit/</a>
-<td><a href="<c:url value='deleteProduct/${c.productID}'/>">Delete/</a></td></tr>
+<td><a href="<c:url value='/updateProduct/${c.productID}'/>">Edit/</a>
+<td><a href="<c:url value='/deleteProduct/${c.productID}'/>">Delete/</a></td></tr>
 </c:forEach>
 </table>
 </c:if>

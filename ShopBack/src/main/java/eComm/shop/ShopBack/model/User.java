@@ -87,5 +87,6 @@ public ShippingAddress getShippingaddress() {
 public void setShippingaddress(ShippingAddress shippingaddress) {
 	this.shippingaddress = shippingaddress;
 	
- }
+}
+
 }

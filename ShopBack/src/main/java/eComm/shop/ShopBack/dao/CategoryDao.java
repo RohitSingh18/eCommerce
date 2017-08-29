@@ -10,7 +10,7 @@ public interface CategoryDao {
 	boolean updateCategory(Category c);
 	List<Category>getAllCategory();
 	Category categoryByid(int catid);
-	
+
 	
 
 }

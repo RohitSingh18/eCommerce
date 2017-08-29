@@ -11,11 +11,11 @@
      
     <style type="text/css">
         footer{
-    background-color:rgba(94, 97, 111,1.0);
-    height:120px;
+    background-color:rgba(0, 0, 0,1.0);
+    height:100px;
     position:absolute;
     width:100%;
-    bottom:0;
+    bottom:8;
     font-weight:lighter;
     color:white;
 }
@@ -34,7 +34,7 @@ footer p{
 footer iframe {
     width:100%;
     position:relative;
-    height:130px;
+    height:100px;
 }
 .sm{
     list-style:none;
@@ -46,7 +46,7 @@ footer iframe {
     float:left;
 } 
 .sm li a img {
-    width:32px;
+    width:30px;
 }
     </style>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,9 +54,9 @@ footer iframe {
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
-<body style bgcolor="black">
+<body style="background-color:black;">
 
-<nav class="navbar navbar-default navbar-fixed-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top"  >
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header" >
@@ -66,7 +66,7 @@ footer iframe {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index">Watch co.</a>
+      <a class="navbar-brand" href="index"><b style="color:#19689A;">Watch co.</b></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,8 +76,8 @@ footer iframe {
       <li class="dropdown">
       <a class="dropdown-toggle"data-toggle="dropdown" href="#">Category<span class="caret"></span></a>
       <ul class="dropdown-menu">
-      <c:forEach items="${categoryList}" var="cat">
-      <li><a href="${pageContext.request.contextPath }/productByCategory"/${cat.categoryID}">${cat.categoryName}</a></li>
+      <c:forEach items="${categoryList}" var="cat"> 
+      <li><a href="${pageContext.request.contextPath }/ProductTable/${cat.categoryID}" value="${cat.categoryID}">${cat.categoryName}</a></li>
       </c:forEach> 
       </ul>
       </li>
