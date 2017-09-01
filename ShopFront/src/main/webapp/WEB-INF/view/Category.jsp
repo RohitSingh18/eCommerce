@@ -10,6 +10,7 @@
 <title>Category List</title>
 </head>
 <body>
+<%@ include file = "Header.jsp" %>
 <sp:form action="${pageContext.request.contextPath}/addCategory" method="POST" modelAttribute="category">
 <c:if test="${not empty category.categoryName}">
 Category ID <sp:input path="categoryID" readOnly="true" disabled="true"/>

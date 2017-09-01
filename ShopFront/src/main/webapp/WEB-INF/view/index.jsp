@@ -47,7 +47,7 @@
 <div class="col-md-2 column productbox">
     <img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" class="img-responsive">
     <div class="producttitle">${c.productName }</div>
-    <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">Cart</a></div><div class="pricetext">${c.productCost }</div></div>
+    <div class="productprice"><div class="pull-right"><a href="${pageContext.request.contextPath }/myCart/addToCart/${c.productID}" class="btn btn-danger btn-sm" role="button">Cart</a></div><div class="pricetext">${c.productCost }</div></div>
 </div>
 </c:forEach>
 

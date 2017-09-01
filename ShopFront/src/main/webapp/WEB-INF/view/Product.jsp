@@ -10,6 +10,7 @@
 <title>Products</title>
 </head>
 <body>
+<%@ include file = "Header.jsp" %>
 <sp:form action="${pageContext.request.contextPath}/addProduct" method="post" modelAttribute="product" enctype="Multipart/form-data">
 <c:if test="${not empty product.productName}">
 Product ID <sp:input path="productID" readOnly="true" disabled="true"/>
@@ -44,7 +45,7 @@ Product Cost<sp:input path="productCost"/>
 <tr><td>${c.productID }</td>
 <td>${c.productName }</td>
 <td>${c.productDesc }</td>
-<td>${c.productCost }</td>
+<td>&#8377; ${c.productCost }</td>
 <td>${c.categoryID }</td>
 
 <td><img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" style="width:150px;height:120px;"></td>

@@ -3,6 +3,9 @@ package eComm.shop.ShopBack.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 public class Cart {
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)		
 		private int cartID;
 		public int getCartID() {
 			return cartID;
@@ -23,13 +28,19 @@ public class Cart {
 			this.cartID = cartID;
 		}
 
-		public double getPrice() {
+		
+
+		public long getPrice() {
 			return price;
 		}
 
-		public void setPrice(double price) {
+
+
+		public void setPrice(long price) {
 			this.price = price;
 		}
+
+
 
 		public String getUsername() {
 			return username;
@@ -87,7 +98,7 @@ public class Cart {
 			this.user = user;
 		}
 
-		private double price;
+		private long price;
 		private String username;
 	    private String prodName;
 	    private int quantity;

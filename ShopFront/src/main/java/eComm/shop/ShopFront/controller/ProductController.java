@@ -80,7 +80,7 @@ public class ProductController {
 				model.addAttribute("categoryList",categoryDao.getAllCategory());
 				model.addAttribute("product",productDao.productByid(proid));
 				model.addAttribute("productList",productDao.getAllProduct());
-				return  "Product";
+				return  "redirect:/admin/Product";
 			}
 		@RequestMapping(value="/deleteProduct/{prodId}")
 		public String deleteproduct(@PathVariable("prodId")Integer proid,Model model)
@@ -88,7 +88,7 @@ public class ProductController {
 				model.addAttribute("product",productDao.productByid(proid));
 				productDao.deleteProduct(proid);
 			    model.addAttribute("productList",productDao.getAllProduct());
-				return "redirect:/admin/Product";
+				return "Product";
 		}
 		
 		@RequestMapping(value="/productByCategory/{categoryID}")

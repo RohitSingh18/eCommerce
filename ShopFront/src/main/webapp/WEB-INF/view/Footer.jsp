@@ -1,4 +1,51 @@
+<head>
+    <meta charset="utf-8">
+     
+    <style type="text/css">
+        footer{
+    background-color:rgba(0, 0, 0,1.0);
+    height:100px;
+    position:absolute;
+    width:100%;
+    bottom:8;
+    font-weight:lighter;
+    color:white;
+}
 
+footer h3{
+    font-weight:lighter;
+}
+footer ul{
+    padding-left:5px;
+    list-style:none;
+}
+footer p{
+    text-align : justify;
+    font-size : 12px;
+}
+footer iframe {
+    width:100%;
+    position:relative;
+    height:100px;
+}
+.sm{
+    list-style:none;
+    overflow:auto;
+}
+.sm li {
+    display: inline;
+    padding:5px;
+    float:left;
+} 
+.sm li a img {
+    width:30px;
+}
+    </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
 <footer>
     <div class="footerHeader" ></div>
     <div class="container">

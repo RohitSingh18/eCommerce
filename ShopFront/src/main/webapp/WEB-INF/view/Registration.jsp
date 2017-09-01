@@ -98,6 +98,7 @@ body {
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%@ include file = "Header.jsp" %>
 <div class="container">
     <h1 class="well">Registration Form</h1>
 	<div class="col-lg-12 well">

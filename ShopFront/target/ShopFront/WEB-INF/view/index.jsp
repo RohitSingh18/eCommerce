@@ -1,20 +1,11 @@
 
-<html lang="en">
-<head>
-  <title>Watch Co.</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-
+    <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
+    <%@page isELIgnored="false" %>
 
 <%@ include file = "Header.jsp" %>
 
-<div class="container" style="background-color:black;"> 
+<div class="container"> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -26,15 +17,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="resources/images/watch1.jpg" alt="bretling" style="width:100%;">
+        <img src="resources/images/watch3.jpg" alt="bretling";">
       </div>
 
       <div class="item">
-        <img src="resources/images/watch2.jpg" alt="Chicago" style="width:100%;">
+        <img src="resources/images/watch2.jpg" alt="Chicago" ;">
       </div>
     
       <div class="item">
-        <img src="resources/images/watch3.jpg" alt="New york" style="width:100%;">
+        <img src="resources/images/watch1.jpg" alt="New york";">
       </div>
     </div>
 
@@ -49,8 +40,20 @@
     </a>
   </div>
 </div>
+<br>
 
-</body>
-</html>
+<div class=container>
+<c:forEach items="${productList }" var="c">
+<div class="col-md-2 column productbox">
+    <img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" class="img-responsive">
+    <div class="producttitle">${c.productName }</div>
+    <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">Cart</a></div><div class="pricetext">${c.productCost }</div></div>
+</div>
+</c:forEach>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+</div>
+<%@ include file = "Footer.jsp" %>
+
 
 

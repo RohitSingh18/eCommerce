@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import eComm.shop.ShopBack.dao.CategoryDao;
 import eComm.shop.ShopBack.model.Category;
 @Controller
-public class categoryController {
+public class CategoryController {
 
 	
 	@Autowired

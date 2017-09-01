@@ -7,54 +7,41 @@
     
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-     
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>products</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
-        footer{
-    background-color:rgba(0, 0, 0,1.0);
-    height:100px;
-    position:absolute;
-    width:100%;
-    bottom:8;
-    font-weight:lighter;
-    color:white;
+        .productbox {
+    background-color:#ffffff;
+	padding:10px;
+	margin-bottom:10px;
+	-webkit-box-shadow: 0 8px 6px -6px  #999;
+	   -moz-box-shadow: 0 8px 6px -6px  #999;
+	        box-shadow: 0 8px 6px -6px #999;
 }
 
-footer h3{
-    font-weight:lighter;
+.producttitle {
+    font-weight:bold;
+	padding:5px 0 5px 0;
 }
-footer ul{
-    padding-left:5px;
-    list-style:none;
+
+.productprice {
+	border-top:1px solid #dadada;
+	padding-top:5px;
 }
-footer p{
-    text-align : justify;
-    font-size : 12px;
-}
-footer iframe {
-    width:100%;
-    position:relative;
-    height:100px;
-}
-.sm{
-    list-style:none;
-    overflow:auto;
-}
-.sm li {
-    display: inline;
-    padding:5px;
-    float:left;
-} 
-.sm li a img {
-    width:30px;
+
+.pricetext {
+	font-weight:bold;
+	font-size:1.4em;
 }
     </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color:black;">
+
+<body style="background-color:white;">
 
 <nav class="navbar navbar-inverse navbar-fixed-top"  >
   <div class="container-fluid">
@@ -66,7 +53,7 @@ footer iframe {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index"><b style="color:#19689A;">Watch co.</b></a>
+      <a class="navbar-brand" href="<c:url value="/" />"><b style="color:#19689A;">Watch co.</b></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

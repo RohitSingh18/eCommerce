@@ -1,92 +1,94 @@
 package eComm.shop.ShopBack.dao;
 
+import java.io.IOException;
 import java.util.List;
 
-import org.hibernate.Query;
-
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import eComm.shop.ShopBack.model.Cart;
-
 @Repository("cartDao")
 @Transactional
 public class CartDaoImpl implements CartDao {
-	
-
-	@Autowired
+	@Autowired(required=true)
 	SessionFactory sessionFactory;
-	public boolean Save(Cart c) {
-		Session s=sessionFactory.getCurrentSession();
-		s.persist(c);
+	
+	
+	public List<Cart> getCartList(String username) {
+		Query query = sessionFactory.getCurrentSession()
+				.createQuery("from Cart where username = '" + username + "' and status='NEW'");
+		return query.list();
+	}
+
+	public boolean save(Cart cart) {
+		sessionFactory.getCurrentSession().save(cart);
 		return true;
 	}
 
-	public boolean delete(int cartID) {
-		Cart cart=sessionFactory.getCurrentSession().load(Cart.class, cartID);
-		Session s=sessionFactory.getCurrentSession();
-		s.delete(cart);
+	public boolean delete(int id) {
+		sessionFactory.getCurrentSession().delete(getCartById(id));
 		return true;
 	}
 
-	public boolean update(Cart c) {
-		Session s=sessionFactory.getCurrentSession();
-		s.update(c);
+	public boolean update(Cart cart) {
+		sessionFactory.getCurrentSession().update(cart);
 		return true;
 	}
 
 	public int getQuantity(String username, String productname) {
-		Cart cart=(Cart)sessionFactory.getCurrentSession().createQuery("from Cart where username='"+username+"' and prodName='"+productname+"'");
-		
-		return (cart.getQuantity());
+		Query query = sessionFactory.getCurrentSession().createQuery("SELECT quantity from Cart WHERE username='"
+				+ username + "' and prodName='" + productname + "' and status = 'NEW'");
+		return  (Integer) query.uniqueResult();
 	}
 
-	public List<Cart> getCartList(String username) {
-		return sessionFactory.getCurrentSession().createQuery("from Cart").list();
+	public long getTotalAmount(String username) {
+		Query query = sessionFactory.getCurrentSession().createQuery(
+				"SELECT SUM(price*quantity) FROM Cart where username='" + username + "' and status = 'NEW'");
+		if (query.uniqueResult() == null) {
+			return 0;
+		} else {
+			long result =  (Long) query.uniqueResult();
+			return result;
+		}
 	}
 
-	public double getTotalAmount(String username) {
-		List<Cart> cartList=sessionFactory.getCurrentSession().createQuery("from Cart").list();
-		double total=0;
-		for( Cart c :cartList){
-			total=total+(c.getPrice()*c.getQuantity());
-		};
-		return total;
+	public Cart getCartByUsername(String username, String productname) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Cart WHERE username='" + username
+				+ "' and prodName='" + productname + "' and status = 'NEW'");
+		return (Cart) query.uniqueResult();
 	}
 
-	public List<Cart> getCartByid(int userid,String productname) {
-		
-		return sessionFactory.getCurrentSession().createQuery("from Cart where userid='"+userid+"'").list();
-		
+	public long getNumberOfProducts(String username) {
+		Query query = sessionFactory.getCurrentSession()
+				.createQuery("SELECT SUM(quantity) FROM Cart where username='" + username + "' and status = 'NEW'");
+		if (query.uniqueResult() == null) {
+			return 0;
+		} else {
+			long result =  (Long) query.uniqueResult();
+			return result;
+		}
+	}
+
+	public Cart getCartById(int id) {
+		return sessionFactory.getCurrentSession().get(Cart.class, id);
 	}
 
 	public int clearCart(String username) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	public long getNumberOfProducts(String username){
-		Query query=sessionFactory.getCurrentSession().createQuery("SELECT SUM(quantity) FROM Cart where username=?1 and status = 'NEW'");
-		query.setParameter(1, username);
-		
-		if  (query.uniqueResult()==null){
-			return 0;
-		}
-		else{
-			long result=(Long)query.uniqueResult();
-			return result;
-		}
-		
+		Query query = sessionFactory.getCurrentSession()
+				.createQuery("DELETE from Cart where username = '" + username + "'");
+		return query.executeUpdate();
 	}
 
-
-
-	public Cart getCartById(int userid) {
-		
-		return sessionFactory.getCurrentSession().get(Cart.class,userid);
+	public Cart validate(int cartId) throws IOException {
+		Cart cart = getCartById(cartId);
+		if (cart == null) {
+			throw new IOException(cartId + "");
+		}
+		update(cart);
+		return cart;
 	}
 
 }
