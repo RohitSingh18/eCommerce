@@ -66,7 +66,7 @@
 			<div style="text-align:center">
 		<a href="<c:url value="/" />"
 			class="btn btn-success btn-lg">Continue Shopping</a><br>
-				<h4>Total Amount: <em><b class="text-success">&#8377 ${totalAmount }</b></em>
+				<h4>Total Amount: <em><b class="text-success">&euro; ${totalAmount }</b></em>
 			&nbsp;</h4>
 			</div>
 			

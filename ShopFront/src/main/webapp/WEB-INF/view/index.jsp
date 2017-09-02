@@ -37,6 +37,8 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     </head>
 <body>
+<br>
+<br>
 <div class="container"> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

@@ -15,7 +15,9 @@
 </head>
 <%@ include file = "Header.jsp" %>
 <body>
-
+<br>
+<br>
+<br>
 <sp:form action="${pageContext.request.contextPath}/addProduct" method="post" modelAttribute="product" enctype="Multipart/form-data">
 <c:if test="${not empty product.productName}">
 <br>
@@ -39,6 +41,7 @@ Product Cost<sp:input path="productCost"/>
 <c:if test="${not empty product.productName }">
 <sp:button value="submit">Update</sp:button>
 </c:if>
+<a href="${pageContext.request.contextPath }/admin/Category" class="btn-primary">Go to Category</a>
 </sp:form>
 <br>
 <br>
