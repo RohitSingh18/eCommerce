@@ -1,11 +1,13 @@
 package eComm.shop.ShopBack.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Authorities {
+public class Authorities implements Serializable {
 	@Id
 	@GeneratedValue
 	private int AuthoritiesId;

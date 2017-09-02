@@ -46,7 +46,7 @@
 			<c:forEach items="${cartList}" var="cart">
 				<tr>
 				<td>${cart.prodName}</td>
-					<td>&#8377 ${cart.price}</td>
+					<td>&euro; ${cart.price}</td>
 					<td>${cart.quantity }</td>
 					<td><a href="<c:url value='/myCart/deleteItem/${cart.cartID}'/>"> <span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
@@ -59,7 +59,7 @@
 		<div class="pull-right">
 		
 			
-			 <a href="<c:url value="/order"/>" class="btn btn-primary">Checkout</a>
+			 <a href="<c:url value="/order"/>"class="btn btn-primary">Checkout</a>
 		</div>
 		<a href="<c:url value="/myCart/clearCart" />"
 			class="btn btn-danger">Clear Cart</a>

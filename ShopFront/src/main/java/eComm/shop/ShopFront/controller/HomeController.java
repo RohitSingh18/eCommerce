@@ -1,5 +1,7 @@
 package eComm.shop.ShopFront.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import eComm.shop.ShopBack.dao.CategoryDao;
 import eComm.shop.ShopBack.dao.ProductDao;
+import eComm.shop.ShopBack.dao.UserDao;
 import eComm.shop.ShopBack.model.BillingAddress;
 import eComm.shop.ShopBack.model.Category;
 import eComm.shop.ShopBack.model.Product;
@@ -19,6 +22,8 @@ public class HomeController {
 	ProductDao productDao;
 	@Autowired
 	CategoryDao categoryDao;
+	@Autowired
+	UserDao userDao;
    @RequestMapping("/")
 	public String home(Model model)
 	{
@@ -76,8 +81,32 @@ public class HomeController {
    public String producttable (@PathVariable("catID")Integer catID,Model model)
    {
 	   	model.addAttribute("productList",productDao.getAllProduct());
-
+	    model.addAttribute("categoryList",categoryDao.getAllCategory());
 	   	model.addAttribute("productList",productDao.productByCategory(catID));
 	   	return"ProductTable";
    }
+   
+	@RequestMapping("/order")
+	public String createOrder(Model model1) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		String loggedInUsername = username;
+
+		User user = userDao.getUserByUserName(loggedInUsername);
+	
+		model1.addAttribute("categoryList",categoryDao.getAllCategory());
+		model1.addAttribute("productList",productDao.getAllProduct());
+		return "redirect:/checkout?userId=" + user.getUserID();
+		
+	}
+	@RequestMapping("/ProductDetails/{proID}")
+	public String ProductDetail(@PathVariable("proID")Integer pro,Model model1)
+	{
+		
+		model1.addAttribute("categoryList",categoryDao.getAllCategory());
+		
+		model1.addAttribute("productList",productDao.productByid(pro));
+		model1.addAttribute("pro",productDao.getAllProduct());
+		return "ProductDetails";
+	}
 }

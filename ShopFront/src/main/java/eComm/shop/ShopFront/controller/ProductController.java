@@ -54,7 +54,10 @@ public class ProductController {
 						
 		    else
 		    {
-				 MultipartFile mp=p.getImage();
+				 
+				
+		    	
+			    	MultipartFile mp=p.getImage();
 					ServletContext context=session.getServletContext();
 					String filelocation=context.getRealPath("/resources/images");
 					System.out.println(filelocation);
@@ -67,8 +70,7 @@ public class ProductController {
 					fos.close();
 					}
 					catch(Exception e){}
-				
-			    	productDao.updateProduct(p);
+					productDao.updateProduct(p);
 
 				
 		    }
@@ -80,7 +82,7 @@ public class ProductController {
 				model.addAttribute("categoryList",categoryDao.getAllCategory());
 				model.addAttribute("product",productDao.productByid(proid));
 				model.addAttribute("productList",productDao.getAllProduct());
-				return  "redirect:/admin/Product";
+				return  "Product";
 			}
 		@RequestMapping(value="/deleteProduct/{prodId}")
 		public String deleteproduct(@PathVariable("prodId")Integer proid,Model model)
@@ -88,7 +90,7 @@ public class ProductController {
 				model.addAttribute("product",productDao.productByid(proid));
 				productDao.deleteProduct(proid);
 			    model.addAttribute("productList",productDao.getAllProduct());
-				return "Product";
+				return "redirect:/admin/Product";
 		}
 		
 		@RequestMapping(value="/productByCategory/{categoryID}")
@@ -96,7 +98,7 @@ public class ProductController {
 		{
 			model.addAttribute("categoryList",categoryDao.getAllCategory());
 			model.addAttribute("productList",productDao.productByCategory(categoryID));
-			return"ProductTable";
+			return "ProductTable";
 		}
 	}
 

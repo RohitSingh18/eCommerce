@@ -1,5 +1,6 @@
 package eComm.shop.ShopBack.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class Cart {
+public class Cart implements Serializable {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)		
 		private int cartID;

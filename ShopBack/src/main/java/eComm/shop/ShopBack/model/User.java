@@ -2,14 +2,19 @@ package eComm.shop.ShopBack.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Entity
 @Component
@@ -88,5 +93,12 @@ public void setShippingaddress(ShippingAddress shippingaddress) {
 	this.shippingaddress = shippingaddress;
 	
 }
-
+@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+private List<Cart> cartItems;
+public List<Cart> getCartItems() {
+	return cartItems;
+}
+public void setCartItems(List<Cart> cartItems) {
+	this.cartItems = cartItems;
+}
 }

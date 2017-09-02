@@ -1,4 +1,5 @@
 package eComm.shop.ShopBack.model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Component
-public class Category {
+public class Category implements Serializable {
 	
 @Id	
 @GeneratedValue(strategy = GenerationType.SEQUENCE)

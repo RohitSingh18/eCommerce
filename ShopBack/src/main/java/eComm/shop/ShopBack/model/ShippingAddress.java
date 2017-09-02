@@ -1,5 +1,7 @@
 package eComm.shop.ShopBack.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class ShippingAddress {
+public class ShippingAddress implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int ShippingAddressID;

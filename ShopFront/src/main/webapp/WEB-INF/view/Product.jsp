@@ -3,16 +3,24 @@
     <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
     <%@taglib prefix="sp" uri="http://www.springframework.org/tags/form" %>
     <%@page isELIgnored="false" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Products</title>
 </head>
-<body>
 <%@ include file = "Header.jsp" %>
+<body>
+
 <sp:form action="${pageContext.request.contextPath}/addProduct" method="post" modelAttribute="product" enctype="Multipart/form-data">
 <c:if test="${not empty product.productName}">
+<br>
+<br>
+<br>
 Product ID <sp:input path="productID" readOnly="true" disabled="true"/>
 <sp:hidden path="productID"/>
 </c:if>
@@ -38,19 +46,19 @@ Product Cost<sp:input path="productCost"/>
 <c:if test="${not empty productList }">
 <table width="50%"border="1">
 <tr>
-<th>ID</th><th>Product Name</th><th>Product Description</th><th>Price</th><th>CategoryID</th><th>Image</th><th>Action</th>
+<th>ID</th><th>Product Name</th><th>Product Description</th><th>Price</th><th>CategoryID</th><th>Image</th><th>Edit</th><th>Delete</th>
 </tr>
 <tr>
 <c:forEach items="${productList }" var="c">
 <tr><td>${c.productID }</td>
 <td>${c.productName }</td>
 <td>${c.productDesc }</td>
-<td>&#8377; ${c.productCost }</td>
+<td>&euro; ${c.productCost }</td>
 <td>${c.categoryID }</td>
 
 <td><img src="${pageContext.request.contextPath}/resources/images/${c.productID}.jpg" style="width:150px;height:120px;"></td>
-<td><a href="<c:url value='/updateProduct/${c.productID}'/>">Edit/</a>
-<td><a href="<c:url value='/deleteProduct/${c.productID}'/>">Delete/</a></td></tr>
+<td><a href="<c:url value='/updateProduct/${c.productID}'/>">Edit</a>
+<td><a href="<c:url value='/deleteProduct/${c.productID}'/>">Delete</a></td></tr>
 </c:forEach>
 </table>
 </c:if>
